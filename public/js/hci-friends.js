@@ -3,6 +3,7 @@
 // Call this function when the page loads (the "ready" event)
 $(document).ready(function() {
 	initializePage();
+	changeNames();
 })
 
 /*
@@ -40,7 +41,16 @@ function anagrammedName(name) {
 		return "Gear Chopper";
 	}
 	else {
-		console.log(name + " not known for anagramming.");
+		console.log(name + " no known anagram.");
 		return name;
 	}
+}
+
+
+function changeNames(){
+	$('div.friend h3').click(function(e){
+		e.preventDefault();
+		var prev = $(this).text();
+		$(this).text(anagrammedName(prev));
+	});
 }
